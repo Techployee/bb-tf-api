@@ -1,1 +1,142 @@
 
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- Styles -->
+    <style>
+    #chartdiv {
+        width		: 100%;
+        height		: 500px;
+        font-size	: 11px;
+    }	
+    
+    select {
+        font-size: 20px;
+    }
+
+    body {
+       
+    }
+
+    #select-wrap {
+        width: 200px;
+        margin: auto;
+    }
+
+    </style>
+        
+        <!-- Resources -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+        <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+        <script src="https://www.amcharts.com/lib/3/plugins/dataloader/dataloader.min.js"></script>
+        <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+        <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+        <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+        
+        <!-- Chart code -->
+        <script>
+        
+        
+        $(function() {
+            setDataSet();
+
+            $("#tfs").change(function() {
+                setDataSet();
+            });
+        });
+        
+        
+        var chart = AmCharts.makeChart("chartdiv", {
+            "theme": "light",
+            "type": "serial",
+            "marginRight": 80,
+            "autoMarginOffset": 20,
+            "marginTop":20,
+            
+            "valueAxes": [{
+                "id": "v1",
+                "axisAlpha": 0.1
+            }],
+            "graphs": [{
+                "useNegativeColorIfDown": true,
+                "balloonText": "[[category]]<br><b>value: [[value]]</b>",
+                "bullet": "round",
+                "bulletBorderAlpha": 1,
+                "bulletBorderColor": "#FFFFFF",
+                "hideBulletsCount": 50,
+                "lineThickness": 2,
+                "lineColor": "#6DBAE3",
+                "negativeLineColor": "#D15454",
+                "valueField": "forcePoints"
+            }],
+            "chartScrollbar": {
+                "scrollbarHeight": 5,
+                "backgroundAlpha": 0.1,
+                "backgroundColor": "#868686",
+                "selectedBackgroundColor": "#67b7dc",
+                "selectedBackgroundAlpha": 1
+            },
+            "chartCursor": {
+                "valueLineEnabled": true,
+                "valueLineBalloonEnabled": true
+            },
+            "categoryField": "date",
+            "categoryAxis": {
+                "parseDates": true,
+                "axisAlpha": 0,
+                "minHorizontalGap": 60
+            },
+            "export": {
+                "enabled": false
+            }
+        });
+        
+        chart.addListener("dataUpdated", zoomChart);
+        //zoomChart();
+        
+        function zoomChart() {
+            if (chart.zoomToIndexes) {
+                chart.zoomToIndexes(130, chartData.length - 1);
+            }
+        }
+        
+        
+        function setDataSet() {
+          
+            $.ajax({
+            url: "http://api.techployee.com/boombeach/tf/tag/"+ $("#tfs :selected").val()+ "/2017-10-14/"+new Date().toJSON().slice(0,10),
+            type: "GET",
+            dataType: 'json',           
+               
+                success :function(response) {
+                    chart.dataProvider = response.result.ranges;
+                    chart.validateData();
+                }
+            });
+        }
+
+        </script>
+
+</head>
+<body>
+    <div id="select-wrap">
+    <select id="tfs">
+            <option value="2llryqpr">Angry Turtles</option>
+            <option value="8q20cvrl">Angry Monkeys</option>
+            <option value="8c0yu2jc">Angry Good Vibe</option>
+            <option value="8jr2uv0c">Angry Lions</option>
+            <option value="8u9v808c">Angry Phoenix</option>
+            <option value="98qu2upg">Angry Rhinos</option>
+            <option value="2ygvcq9v">Angry Starfish</option>
+            <option value="9p92gjg9">Angry Kraken</option>
+            <option value="9qrgqjuc">YouAngryBro?</option>
+            <option value="8ul9yjlr">Angry Outcasts</option>
+    </select>    
+</div>
+    <div id="chartdiv"></div>	
+
+</body>
+<!-- HTML -->
