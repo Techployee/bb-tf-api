@@ -1,8 +1,8 @@
 # Boom Beach TF API
 
-I decided to get the ball rolling with a simple TF API in the hopes that maybe SC can launch an official one. While that time comes people can use this one for either recruiting or keeping track of their family TFs. Maybe someone can make a recruiting website, I might but am a little short on time.
+I decided to get the ball rolling with a simple task force API in the hopes that maybe SC will launch an official one. While that time comes people can use this API for either recruiting or keeping track of their family TFs. 
 
-This is a very simple API which will pick up your TF stats but only a snapshot in a 24 hour period, not live.
+My system will run every 24 hours and record your task force data in a file for achieving purposes. So the data is not live.
 
 It will record:
 
@@ -17,7 +17,7 @@ It will record:
     Age 
 
 
-Each day it will run and save all of the TF data in a file where it can be accessed using API calls.
+You can then access this data using API calls.
 
 **Please visit the [wiki](https://github.com/Techployee/bb-tf-api/wiki) to get started.**
 
