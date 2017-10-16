@@ -17,6 +17,11 @@ It will record:
     Age 
 
 
+Live examples can be found:
+* [http://api.techployee.com/boombeach/size/tfsize.html](http://api.techployee.com/boombeach/size/tfsize.html)
+* [http://api.techployee.com/boombeach/chart/chart.html](http://api.techployee.com/boombeach/chart/chart.html)
+
+
 You can then access this data using API calls.
 
 **Please visit the [wiki](https://github.com/Techployee/bb-tf-api/wiki) to get started.**
