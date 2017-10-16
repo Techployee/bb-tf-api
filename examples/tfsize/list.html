@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="jquery.dynatable.js"></script>
+    <link rel="stylesheet" href="jquery.dynatable.css" />
+<script>
+  $(function() {
 
+    $("input:radio[name='size']").change(function () {
+        $.ajax({
+            url: "http://api.techployee.com/boombeach/tf/size/"+$("input:radio[name='size']:checked").val(), 
+            type: "GET",
+            dataType: 'json',           
+               
+        success :function(response) {
+            
+
+            $("#last-updated").html("Last updated on "+ response.lastUpdated);
+
+            var dynatable = $('#tf-table').dynatable({
+          
+                features: {
+                paginate: false,
+                search: false,
+                recordCount: true
+            },
+            
+            dataset: {
+                records: response.result
+            }
+            }).data("dynatable");
+
+            dynatable.settings.dataset.originalRecords = response.result;
+            dynatable.process();
+        }
+    });
+  });
+});
+
+</script>
+</head>
+<body>
+<div id="search-params">
+      TF Size
+   <label><input type="radio" name="size" value="5"> 5</label> 
+   <label><input type="radio" name="size" value="10"> 10</label> 
+    <label><input type="radio" name="size" value="25"> 25</label> 
+     <label><input type="radio" name="size" value="50"> 50</label> 
+
+     <span id="last-updated">
+        
+        </span>
+
+    
+</div>
+
+
+
+    <table id="tf-table">
+        <thead>
+            <th data-dynatable-column="tag" data-dynatable-sorts="tag">Tag</th>
+            <th data-dynatable-column="name" data-dynatable-sorts="name">Name</th>
+            <th data-dynatable-column="family" data-dynatable-sorts="family">Family</th>
+            <th data-dynatable-column="forcePoints" data-dynatable-sorts="forcePoints">FPs</th>
+            <th data-dynatable-column="players" data-dynatable-sorts="players">Players</th>
+            <th data-dynatable-column="intel" data-dynatable-sorts="intel">Intel</th>
+            <th data-dynatable-column="operationStarted" data-dynatable-sorts="operationStarted">Op Started</th>
+            <th data-dynatable-column="operationSuccessRate" data-dynatable-sorts="operationSuccessRate">Success</th>
+            <th data-dynatable-column="highestRank" data-dynatable-sorts="highestRank">Highest Rank</th>
+            <th data-dynatable-column="highestForcePoints" data-dynatable-sorts="highestForcePoints">Highest FPs</th>
+            <th data-dynatable-column="age" data-dynatable-sorts="age">Age</th>
+            
+            
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+          
+    
+   
+
+</body>
+</html>
