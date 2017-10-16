@@ -19,6 +19,9 @@ It will record:
 
 Each day it will run and save all of the TF data in a file where it can be accessed using API calls.
 
+**Please visit the [wiki](https://github.com/Techployee/bb-tf-api/wiki) to get started.**
+
+
 
 ## 2017-10-15
 * Json properties now use camel case, sorry if this has caused any inconveniences.
