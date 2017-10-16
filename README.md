@@ -2,7 +2,7 @@
 
 I decided to get the ball rolling with a simple task force API in the hopes that maybe SC will launch an official one. While that time comes people can use this API for either recruiting or keeping track of their family TFs. 
 
-My system will run every 24 hours and record your task force data in a file for achieving purposes. So the data is not live.
+My system will run every 24 hours and record your task force data in a file for archiving purposes. So the data is not live.
 
 It will record:
 
