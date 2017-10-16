@@ -21,11 +21,13 @@ Each day it will run and save all of the TF data in a file where it can be acces
 
 **Please visit the [wiki](https://github.com/Techployee/bb-tf-api/wiki) to get started.**
 
-
+## 2017-10-16
+* Added task force [comparing](https://github.com/Techployee/bb-tf-api/wiki/Task-Force-Compare)
 
 ## 2017-10-15
 * Json properties now use camel case, sorry if this has caused any inconveniences.
 * Added date/time of data import in response called lastUpdated.
+* Added task force details between [date ranges](https://github.com/Techployee/bb-tf-api/wiki/Task-Force-Tag#task-force-details-between-dates) to calculate growth.
 
 ## 2017-10-14
 Project was created
