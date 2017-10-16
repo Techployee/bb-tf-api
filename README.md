@@ -23,6 +23,7 @@ You can then access this data using API calls.
 
 ## 2017-10-16
 * Added task force [comparing](https://github.com/Techployee/bb-tf-api/wiki/Task-Force-Compare).
+* Updated how [date ranges](https://github.com/Techployee/bb-tf-api/wiki/Task-Force-Tag#task-force-details-between-dates) work. 
 
 ## 2017-10-15
 * Json properties now use camel case, sorry if this has caused any inconveniences.
