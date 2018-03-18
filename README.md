@@ -25,6 +25,10 @@ Live examples can be found:
 * [http://api.techployee.com/boombeach/size/tfsize.html](http://api.techployee.com/boombeach/size/tfsize.html)
 * [http://api.techployee.com/boombeach/chart/chart.html](http://api.techployee.com/boombeach/chart/chart.html)
 
+
+## 2018-03-18
+* This project has now been retired.
+
 ## 2017-10-16
 * Added task force [comparing](https://github.com/Techployee/bb-tf-api/wiki/Task-Force-Compare).
 * Updated the [date ranges](https://github.com/Techployee/bb-tf-api/wiki/Task-Force-Tag#task-force-details-between-dates) array, the date is placed inside the array as a property instead of being the key. 
